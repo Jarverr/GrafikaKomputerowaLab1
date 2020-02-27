@@ -65,40 +65,21 @@ public class TransformedShapes extends JPanel {
 		// REMOVE THE FOLLOWING CODE, which draws a big red X in the upper right quadrant,
 		// and insert your own code to draw the required pictures in the four quadrants.
 
-		// The next two line scale the X to be twice the original size
-		// and then moves the center of the X from (0,0) to (450,150).
-
-		g2.translate(150,300);
-		g2.scale(2,2);
-
-		// Set the drawing color to red.
-
-		g2.setColor(Color.BLUE);
-
-		// The next three lines draw a tilted rectangle centered at (0,0).
-
-		g2.rotate(Math.toRadians(180));
-		g2.scale(0.5,0.5);
-		triangle();
-
-		// The next two lines undo the previous scale and rotation.  (Can't use resetTransform()
-		// here because that would also eliminate the first translate and scale.)
-
-		g2.translate(0, -90);
-		
-
-		// The next three lines draw a rectangle tilted in the opposite direction.
-		g2.rotate(Math.toRadians(90));
-
-		g2.rotate(Math.toRadians(90));
-		g2.scale(1.5,0.75);
-		square();
-
-		g2.translate(0, 110);
-		g2.scale(2,2);
-		g2.scale(0.4,0.6);
-
-		triangle();
+	      g2.setColor(Color.blue);
+	      g2.translate(300,150);
+	      g2.rotate(Math.toRadians(180));
+	      triangle();
+	      
+	      resetTransform();
+	      g2.translate(300,225);
+	      g2.scale(2,0.5);
+	      square();
+	      
+	      resetTransform();
+	      g2.translate(300,300);
+	      g2.scale(1,1);
+	      triangle();
+	      
 		// reset the transform, so changes don't apply to subsequent drawing
 
 		resetTransform();
